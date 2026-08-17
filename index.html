@@ -1,40 +1,2094 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>나를 소개합니다</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Research portfolio focused on interfacial electronic materials, reliable thin-film conductors, CNT interphases, and multiphysics modeling for extreme environments." />
+  <meta name="keywords" content="interfacial materials, thin films, CNT, polyimide, metal conductor, flexible electronics, extreme environments, CFD, materials science" />
+  <meta name="author" content="YOUR NAME" />
+  <meta property="og:title" content="YOUR NAME | Interfacial Electronic Materials" />
+  <meta property="og:description" content="Engineering interfaces that keep thin-film conductors reliable under mechanical, thermal, and environmental extremes." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0d1117" />
+  <title>YOUR NAME | Interfacial Electronic Materials</title>
+
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --bg-elevated: rgba(255, 255, 255, 0.86);
+      --bg-solid: #ffffff;
+      --surface: #eef2f7;
+      --surface-strong: #e2e8f0;
+      --text: #111827;
+      --muted: #5d6878;
+      --line: rgba(17, 24, 39, 0.12);
+      --accent: #4f46e5;
+      --accent-2: #0f9f92;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --warm: #d97706;
+      --metal: #c6ced8;
+      --cnt: #202630;
+      --pi: #cc7a35;
+      --success: #15803d;
+      --shadow: 0 24px 65px rgba(15, 23, 42, 0.10);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1180px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #080b10;
+      --bg-elevated: rgba(16, 21, 29, 0.84);
+      --bg-solid: #10151d;
+      --surface: #151b24;
+      --surface-strong: #1e2632;
+      --text: #edf2f7;
+      --muted: #9da9b8;
+      --line: rgba(237, 242, 247, 0.12);
+      --accent: #8b8cff;
+      --accent-2: #45d6c5;
+      --accent-soft: rgba(139, 140, 255, 0.14);
+      --warm: #f2a65a;
+      --metal: #cbd3de;
+      --cnt: #1c222b;
+      --pi: #de8b44;
+      --success: #5bd28b;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 11% 8%, rgba(79, 70, 229, 0.15), transparent 28rem),
+        radial-gradient(circle at 88% 18%, rgba(15, 159, 146, 0.12), transparent 26rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.66;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.38;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 18px;
+      z-index: 999;
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: #fff;
+      background: #111827;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 18px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 820;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg-solid);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .brand-stack {
+      width: 21px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-stack span {
+      display: block;
+      height: 4px;
+      border-radius: 4px;
+    }
+
+    .brand-stack span:nth-child(1) { background: var(--metal); }
+    .brand-stack span:nth-child(2) { background: var(--cnt); border: 1px solid rgba(255,255,255,0.14); }
+    .brand-stack span:nth-child(3) { background: var(--pi); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 2px;
+      border-radius: 10px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      background: var(--bg-solid);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .icon-button:hover,
+    .icon-button:focus-visible {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    }
+
+    .lang-button {
+      width: auto;
+      min-width: 52px;
+      padding-inline: 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 86px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+      align-items: center;
+      gap: 66px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--accent-2);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(3rem, 7.4vw, 6.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.067em;
+    }
+
+    .hero h1 .gradient-text {
+      color: transparent;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-lead {
+      max-width: 730px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.72;
+    }
+
+    .hero-lead strong {
+      color: var(--text);
+      font-weight: 760;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 760;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #5551dc, #4b82ec);
+      border-color: transparent;
+      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.28);
+    }
+
+    .button-secondary {
+      background: var(--bg-solid);
+    }
+
+    .button svg,
+    .icon-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--bg-solid) 80%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.79rem;
+      font-weight: 680;
+    }
+
+    .status-chip .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 15%, transparent);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 530px;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-orbit {
+      position: absolute;
+      inset: 5% 1%;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transform: rotate(-10deg);
+    }
+
+    .visual-orbit::before,
+    .visual-orbit::after {
+      content: "";
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent-2) 15%, transparent);
+    }
+
+    .visual-orbit::before { top: 18%; right: 8%; }
+    .visual-orbit::after { bottom: 10%; left: 17%; background: var(--accent); box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 15%, transparent); }
+
+    .device-card {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 430px);
+      padding: 25px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      transform: rotate(2deg);
+    }
+
+    .device-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 42%, transparent), transparent 40%, color-mix(in srgb, var(--accent-2) 32%, transparent));
+      opacity: 0.58;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      padding: 1px;
+    }
+
+    .visual-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .visual-label span:last-child {
+      color: var(--accent-2);
+    }
+
+    .layer-stack {
+      position: relative;
+      padding: 38px 12px 22px;
+      perspective: 1000px;
+    }
+
+    .layer {
+      position: relative;
+      min-height: 64px;
+      margin-top: -11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      border-radius: 17px;
+      box-shadow: 0 18px 24px rgba(0, 0, 0, 0.17);
+      transform: rotateX(58deg) rotateZ(-3deg);
+      transform-origin: center;
+    }
+
+    .layer strong {
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    .layer small {
+      font-size: 0.67rem;
+      opacity: 0.78;
+    }
+
+    .layer-metal {
+      z-index: 3;
+      color: #1f2937;
+      background: linear-gradient(120deg, #eef2f7, #9da9b8 46%, #e6ebf1);
+    }
+
+    .layer-cnt {
+      z-index: 2;
+      color: #f8fafc;
+      background:
+        repeating-linear-gradient(24deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 8px),
+        linear-gradient(120deg, #111827, #2f3744);
+    }
+
+    .layer-pi {
+      z-index: 1;
+      color: #fff8ef;
+      background: linear-gradient(120deg, #9f4f1a, #dd8b45 58%, #f0b570);
+    }
+
+    .interface-arrow {
+      position: absolute;
+      top: 5px;
+      right: 17px;
+      width: 92px;
+      color: var(--accent-2);
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: right;
+    }
+
+    .interface-arrow::after {
+      content: "";
+      position: absolute;
+      top: 31px;
+      right: 7px;
+      width: 1px;
+      height: 52px;
+      background: currentColor;
+    }
+
+    .interface-arrow::before {
+      content: "";
+      position: absolute;
+      top: 77px;
+      right: 3px;
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .property {
+      min-height: 84px;
+      padding: 13px;
+      background: color-mix(in srgb, var(--surface) 75%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+
+    .property span {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--accent-2);
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .property strong {
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: 94px 0;
+    }
+
+    .section-tight {
+      padding-top: 50px;
+    }
+
+    .section-header {
+      max-width: 800px;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      margin-bottom: 12px;
+      color: var(--accent-2);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(2.05rem, 4.7vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.052em;
+    }
+
+    .section-description {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .identity-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 44px;
+      padding: 44px;
+      overflow: hidden;
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .identity-panel::after {
+      content: "INTERFACE";
+      position: absolute;
+      right: -12px;
+      bottom: -40px;
+      color: var(--accent-soft);
+      font-size: clamp(5rem, 13vw, 10rem);
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .identity-quote {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: clamp(1.45rem, 2.8vw, 2.3rem);
+      font-weight: 780;
+      line-height: 1.32;
+      letter-spacing: -0.035em;
+    }
+
+    .identity-quote em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .identity-copy {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+    }
+
+    .identity-copy p:first-child {
+      margin-top: 0;
+    }
+
+    .identity-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .principle-chain {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .principle-step {
+      position: relative;
+      min-height: 112px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .principle-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 40%;
+      right: -17px;
+      z-index: 2;
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .principle-step span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .principle-step strong {
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .strength-card {
+      min-height: 245px;
+      padding: 25px;
+      background: color-mix(in srgb, var(--bg-solid) 85%, transparent);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.13);
+    }
+
+    .strength-number {
+      display: inline-grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      margin-bottom: 34px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .strength-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.16rem;
+      letter-spacing: -0.025em;
+    }
+
+    .strength-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 24px;
+    }
+
+    .project-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      min-height: 390px;
+      overflow: hidden;
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 15px 48px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-side {
+      position: relative;
+      min-height: 100%;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent) 18%, var(--surface)), color-mix(in srgb, var(--accent-2) 12%, var(--surface)));
+      border-right: 1px solid var(--line);
+    }
+
+    .project-index {
+      color: var(--accent);
+      font-size: 4.2rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.08em;
+      opacity: 0.8;
+    }
+
+    .project-type {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 7px 10px;
+      color: var(--text);
+      background: color-mix(in srgb, var(--bg-solid) 72%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.71rem;
+      font-weight: 780;
+    }
+
+    .project-type::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-2);
+    }
+
+    .project-side h3 {
+      margin: 18px 0 0;
+      font-size: clamp(1.55rem, 2.6vw, 2.45rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+    }
+
+    .project-keyline {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 720;
+      line-height: 1.5;
+    }
+
+    .project-main {
+      padding: 34px;
+    }
+
+    .project-main > p {
+      max-width: 760px;
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .project-main > p strong {
+      color: var(--text);
+    }
+
+    .project-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .project-fact {
+      padding: 15px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+
+    .project-fact dt {
+      margin-bottom: 6px;
+      color: var(--accent-2);
+      font-size: 0.69rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-fact dd {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.52;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      color: var(--muted);
+      background: var(--bg-solid);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 720;
+    }
+
+    .project-note {
+      margin-top: 18px;
+      padding-left: 15px;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      font-size: 0.83rem;
+    }
+
+    .contribution-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 24px;
+    }
+
+    .contribution-intro,
+    .contribution-grid {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+    }
+
+    .contribution-intro {
+      padding: 34px;
+    }
+
+    .contribution-intro h3 {
+      margin: 0 0 16px;
+      font-size: 1.7rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .contribution-intro p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contribution-intro .signature-line {
+      margin-top: 28px;
+      padding: 18px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      font-weight: 760;
+      line-height: 1.5;
+    }
+
+    .contribution-grid {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contribution-item {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+    }
+
+    .contribution-item svg {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 26px;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contribution-item h4 {
+      margin: 0 0 9px;
+      font-size: 1.02rem;
+    }
+
+    .contribution-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-group {
+      padding: 26px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+    }
+
+    .skill-group-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .skill-group h3 {
+      margin: 0;
+      font-size: 1.16rem;
+      letter-spacing: -0.03em;
+    }
+
+    .skill-level {
+      flex: none;
+      padding: 5px 8px;
+      color: var(--accent-2);
+      background: color-mix(in srgb, var(--accent-2) 11%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent-2) 28%, transparent);
+      border-radius: 999px;
+      font-size: 0.64rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 10px;
       margin: 0;
       padding: 0;
+      list-style: none;
     }
-    .container {
-      max-width: 600px;
-      margin: 80px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px rgba(0,0,0,0.1);
+
+    .skill-list li {
+      position: relative;
+      padding-left: 17px;
+      color: var(--muted);
+      font-size: 0.89rem;
+    }
+
+    .skill-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.69em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .output-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 26px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+    }
+
+    .output-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 17px;
+    }
+
+    .output-icon svg {
+      width: 27px;
+      height: 27px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .output-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.06rem;
+      letter-spacing: -0.02em;
+    }
+
+    .output-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .output-status {
+      padding: 7px 10px;
+      color: var(--warm);
+      background: color-mix(in srgb, var(--warm) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--warm) 28%, transparent);
+      border-radius: 999px;
+      font-size: 0.69rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .interdisciplinary-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 31px;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 11%, var(--bg-elevated)), color-mix(in srgb, var(--accent-2) 9%, var(--bg-elevated)));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+    }
+
+    .interdisciplinary-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+      letter-spacing: -0.035em;
+    }
+
+    .interdisciplinary-card p {
+      max-width: 830px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .interdisciplinary-symbol {
+      width: 115px;
+      height: 115px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--bg-solid);
+      transform: rotate(4deg);
+    }
+
+    .interdisciplinary-symbol svg {
+      width: 62px;
+      height: 62px;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: 52px;
       text-align: center;
+      background: linear-gradient(135deg, #24216d, #1c6673);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
     }
-    h1 {
-      margin-bottom: 10px;
+
+    .contact-card::before,
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 50%;
     }
-    p {
-      line-height: 1.6;
+
+    .contact-card::before { top: -240px; left: -90px; }
+    .contact-card::after { right: -160px; bottom: -250px; }
+
+    .contact-card h2 {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin-inline: auto;
+      color: #fff;
+    }
+
+    .contact-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 710px;
+      margin: 20px auto 0;
+      color: rgba(255,255,255,0.77);
+      font-size: 1.02rem;
+    }
+
+    .contact-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .contact-actions .button {
+      color: #fff;
+      background: rgba(255,255,255,0.11);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .contact-actions .button-primary {
+      color: #182033;
+      background: #fff;
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 32px 0 44px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-weight: 680;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 480px;
+      }
+
+      .strength-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .identity-panel,
+      .contribution-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .principle-chain {
+        grid-template-columns: repeat(5, minmax(130px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .project-card {
+        grid-template-columns: 0.62fr 1.38fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        position: fixed;
+        top: 75px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        color: var(--text);
+        background: var(--bg-solid);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 11px 12px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: var(--surface);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-side {
+        min-height: 250px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(calc(100% - 26px), var(--max-width));
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.7rem, 15vw, 4.5rem);
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .device-card {
+        padding: 18px;
+      }
+
+      .strength-grid,
+      .project-facts,
+      .contribution-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .identity-panel,
+      .project-main,
+      .contribution-intro,
+      .contact-card {
+        padding: 27px;
+      }
+
+      .project-side {
+        padding: 26px;
+      }
+
+      .output-card {
+        grid-template-columns: auto 1fr;
+      }
+
+      .output-status {
+        grid-column: 1 / -1;
+        justify-self: flex-start;
+      }
+
+      .interdisciplinary-card {
+        grid-template-columns: 1fr;
+      }
+
+      .interdisciplinary-symbol {
+        display: none;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .hero-actions,
+      .contact-actions,
+      .nav-actions,
+      .visual-orbit {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .section {
+        padding: 34px 0;
+      }
+
+      .project-card,
+      .identity-panel,
+      .strength-card,
+      .skill-group,
+      .contribution-intro,
+      .contribution-grid {
+        box-shadow: none;
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>안녕하세요 👋</h1>
-    <p>저는 jbs371입니다.</p>
-    <p>이곳은 저를 소개하는 개인 홈페이지입니다.</p>
-    <p>관심사: 개발, 공부, 기록</p>
-    <p>이메일: example@email.com</p>
-  </div>
+  <a class="skip-link i18n" href="#main" data-en="Skip to content" data-ko="본문으로 건너뛰기">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-stack"><span></span><span></span><span></span></span>
+        </span>
+        <span data-profile="name">YOUR NAME</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a class="i18n" href="#identity" data-en="Research identity" data-ko="연구 정체성">Research identity</a>
+        <a class="i18n" href="#strengths" data-en="Strengths" data-ko="강점">Strengths</a>
+        <a class="i18n" href="#research" data-en="Research" data-ko="연구 경험">Research</a>
+        <a class="i18n" href="#contribution" data-en="Contribution" data-ko="기여 가능성">Contribution</a>
+        <a class="i18n" href="#skills" data-en="Skills" data-ko="기술">Skills</a>
+        <a class="i18n" href="#contact" data-en="Contact" data-ko="연락처">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button lang-button" id="languageToggle" type="button" aria-label="Switch language">KO</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch color theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42" />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+        </button>
+        <button class="icon-button menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow i18n" data-en="Interfacial electronic materials · Thin films · Multiphysics" data-ko="계면 전자재료 · 박막 · 멀티피직스">
+            Interfacial electronic materials · Thin films · Multiphysics
+          </div>
+
+          <h1>
+            <span class="i18n" data-en="Engineering" data-ko="극한환경에서도">Engineering</span><br />
+            <span class="gradient-text i18n" data-en="reliable interfaces." data-ko="신뢰성 있는 계면.">reliable interfaces.</span>
+          </h1>
+
+          <p class="hero-lead i18n"
+             data-en="I study how <strong>surface chemistry and interfacial architecture</strong> govern metal-film growth, adhesion, cracking, and electrical stability in polymer-supported conductors. My goal is to build electronic materials that remain functional under mechanical, thermal, and environmental extremes."
+             data-ko="저는 <strong>표면화학과 계면 구조</strong>가 고분자 지지 금속박막의 성장, 접착, 균열 및 전기적 안정성을 어떻게 지배하는지 연구합니다. 목표는 기계적·열적·환경적 극한조건에서도 기능을 유지하는 전자재료를 설계하는 것입니다.">
+            I study how <strong>surface chemistry and interfacial architecture</strong> govern metal-film growth, adhesion, cracking, and electrical stability in polymer-supported conductors. My goal is to build electronic materials that remain functional under mechanical, thermal, and environmental extremes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">
+              <span class="i18n" data-en="Explore my research" data-ko="연구 살펴보기">Explore my research</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="button button-secondary profile-link" data-link="cv" href="assets/CV.pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></svg>
+              <span class="i18n" data-en="Download CV" data-ko="CV 다운로드">Download CV</span>
+            </a>
+            <a class="button button-secondary profile-link" data-link="email" href="mailto:your.email@example.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+              <span class="i18n" data-en="Email" data-ko="이메일">Email</span>
+            </a>
+          </div>
+
+          <div class="status-row" aria-label="Current status">
+            <span class="status-chip"><span class="dot"></span><span data-profile="role">M.S. Researcher in Materials Science &amp; Engineering</span></span>
+            <span class="status-chip"><span data-profile="applicationCycle">Preparing for Fall 2027 PhD applications</span></span>
+            <span class="status-chip"><span data-profile="location">Republic of Korea</span></span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="PI CNT metal interfacial conductor schematic">
+          <div class="visual-orbit" aria-hidden="true"></div>
+          <div class="device-card">
+            <div class="visual-label">
+              <span class="i18n" data-en="Hybrid conductor architecture" data-ko="하이브리드 도선 구조">Hybrid conductor architecture</span>
+              <span>PI–CNT–METAL</span>
+            </div>
+
+            <div class="layer-stack" aria-hidden="true">
+              <div class="interface-arrow i18n" data-en="Engineered interphase" data-ko="설계된 계면층">Engineered interphase</div>
+              <div class="layer layer-metal"><strong>METAL FILM</strong><small>transport · protection</small></div>
+              <div class="layer layer-cnt"><strong>CNT NETWORK</strong><small>bridging · nucleation</small></div>
+              <div class="layer layer-pi"><strong>POLYIMIDE</strong><small>compliance · lightweight</small></div>
+            </div>
+
+            <div class="property-grid">
+              <div class="property"><span class="i18n" data-en="Growth" data-ko="성장">Growth</span><strong class="i18n" data-en="Nucleation &amp; film continuity" data-ko="핵생성과 박막 연속성">Nucleation &amp; film continuity</strong></div>
+              <div class="property"><span class="i18n" data-en="Interface" data-ko="계면">Interface</span><strong class="i18n" data-en="Adhesion &amp; stress transfer" data-ko="접착과 응력 전달">Adhesion &amp; stress transfer</strong></div>
+              <div class="property"><span class="i18n" data-en="Failure" data-ko="파괴">Failure</span><strong class="i18n" data-en="Crack control &amp; delamination" data-ko="균열 제어와 박리">Crack control &amp; delamination</strong></div>
+              <div class="property"><span class="i18n" data-en="Function" data-ko="기능">Function</span><strong class="i18n" data-en="Electrical stability under strain" data-ko="변형 중 전기적 안정성">Electrical stability under strain</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="identity">
+      <div class="container">
+        <div class="identity-panel reveal">
+          <blockquote class="identity-quote i18n"
+            data-en="I treat the CNT layer as an <em>engineered interphase</em>—not simply a backup electrical path."
+            data-ko="저는 CNT 층을 단순한 보조 전도경로가 아니라 <em>설계 가능한 계면상(interphase)</em>으로 봅니다.">
+            I treat the CNT layer as an <em>engineered interphase</em>—not simply a backup electrical path.
+          </blockquote>
+
+          <div class="identity-copy">
+            <p class="i18n"
+               data-en="My research asks a mechanism-driven question: can CNT surface chemistry and network topology change how a metal film nucleates, transfers stress, initiates cracks, and retains conductivity on a compliant polymer substrate?"
+               data-ko="제 연구의 핵심 질문은 메커니즘에 있습니다. CNT의 표면화학과 네트워크 토폴로지가 유연한 고분자 기판 위 금속박막의 핵생성, 응력전달, 균열 개시 및 전도성 유지 방식을 변화시킬 수 있는지를 규명하고자 합니다.">
+              My research asks a mechanism-driven question: can CNT surface chemistry and network topology change how a metal film nucleates, transfers stress, initiates cracks, and retains conductivity on a compliant polymer substrate?
+            </p>
+            <p class="i18n"
+               data-en="This interface-first perspective connects flexible conductors to broader problems in thin-film interconnects, advanced packaging, extreme-environment electronics, protective coatings, and aerospace or defense systems."
+               data-ko="이러한 계면 중심 관점은 유연 도선을 넘어 박막 인터커넥트, 첨단 패키징, 극한환경 전자소자, 보호코팅, 항공우주 및 국방 시스템의 문제로 확장될 수 있습니다.">
+              This interface-first perspective connects flexible conductors to broader problems in thin-film interconnects, advanced packaging, extreme-environment electronics, protective coatings, and aerospace or defense systems.
+            </p>
+
+            <div class="principle-chain" aria-label="Research mechanism chain">
+              <div class="principle-step"><span>01</span><strong class="i18n" data-en="Surface functionality" data-ko="표면 작용기">Surface functionality</strong></div>
+              <div class="principle-step"><span>02</span><strong class="i18n" data-en="Metal nucleation &amp; wetting" data-ko="금속 핵생성·젖음">Metal nucleation &amp; wetting</strong></div>
+              <div class="principle-step"><span>03</span><strong class="i18n" data-en="Interface morphology &amp; bonding" data-ko="계면 형상·결합">Interface morphology &amp; bonding</strong></div>
+              <div class="principle-step"><span>04</span><strong class="i18n" data-en="Cracking &amp; delamination" data-ko="균열·박리">Cracking &amp; delamination</strong></div>
+              <div class="principle-step"><span>05</span><strong class="i18n" data-en="Electrical reliability" data-ko="전기적 신뢰성">Electrical reliability</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strengths">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker i18n" data-en="Research strengths" data-ko="연구 강점">Research strengths</div>
+          <h2 class="i18n" data-en="What I bring to a research group." data-ko="연구실에 가져갈 수 있는 역량">What I bring to a research group.</h2>
+          <p class="section-description i18n"
+             data-en="My strength is not one isolated technique. It is the ability to connect fabrication, interfacial chemistry, failure observation, electrical response, and modeling into one testable research story."
+             data-ko="저의 강점은 하나의 고립된 기술이 아닙니다. 제작, 계면화학, 파괴 관찰, 전기적 응답, 모델링을 하나의 검증 가능한 연구 서사로 연결하는 능력입니다.">
+            My strength is not one isolated technique. It is the ability to connect fabrication, interfacial chemistry, failure observation, electrical response, and modeling into one testable research story.
+          </p>
+        </div>
+
+        <div class="strength-grid">
+          <article class="strength-card reveal">
+            <span class="strength-number">01</span>
+            <h3 class="i18n" data-en="Interface-first reasoning" data-ko="계면 중심 사고">Interface-first reasoning</h3>
+            <p class="i18n" data-en="I frame performance changes through nucleation, adhesion, stress transfer, crack connectivity, and contact resistance—not through material labels alone." data-ko="성능 변화를 재료 이름만으로 설명하지 않고 핵생성, 접착, 응력전달, 균열 연결성 및 접촉저항의 관점에서 해석합니다.">I frame performance changes through nucleation, adhesion, stress transfer, crack connectivity, and contact resistance—not through material labels alone.</p>
+          </article>
+
+          <article class="strength-card reveal">
+            <span class="strength-number">02</span>
+            <h3 class="i18n" data-en="Fabrication-to-failure workflow" data-ko="제작부터 파괴까지">Fabrication-to-failure workflow</h3>
+            <p class="i18n" data-en="I work across CNT film preparation and transfer, metal deposition, electrical measurement, mechanical deformation, and microstructural interpretation." data-ko="CNT 필름 제조·전사, 금속 증착, 전기 측정, 기계적 변형시험, 미세구조 해석을 하나의 흐름으로 다룹니다.">I work across CNT film preparation and transfer, metal deposition, electrical measurement, mechanical deformation, and microstructural interpretation.</p>
+          </article>
+
+          <article class="strength-card reveal">
+            <span class="strength-number">03</span>
+            <h3 class="i18n" data-en="Mechanism-driven controls" data-ko="메커니즘 검증형 비교군">Mechanism-driven controls</h3>
+            <p class="i18n" data-en="I design comparisons that separate the effects of the polymer substrate, CNT topology, surface treatment, metal thickness, and redundant conduction." data-ko="고분자 기판, CNT 토폴로지, 표면처리, 금속 두께 및 병렬 전도 효과를 분리할 수 있는 비교군을 설계합니다.">I design comparisons that separate the effects of the polymer substrate, CNT topology, surface treatment, metal thickness, and redundant conduction.</p>
+          </article>
+
+          <article class="strength-card reveal">
+            <span class="strength-number">04</span>
+            <h3 class="i18n" data-en="Experiment–model bridge" data-ko="실험–모델링 연결">Experiment–model bridge</h3>
+            <p class="i18n" data-en="My CFD and Python experience supports future coupling of experiments with reactor transport, heat transfer, Joule heating, and interface-degradation models." data-ko="CFD와 Python 경험을 바탕으로 향후 실험을 반응기 물질전달, 열전달, 줄가열 및 계면 열화 모델과 연결할 수 있습니다.">My CFD and Python experience supports future coupling of experiments with reactor transport, heat transfer, Joule heating, and interface-degradation models.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker i18n" data-en="Selected research" data-ko="주요 연구 경험">Selected research</div>
+          <h2 class="i18n" data-en="Projects that define my research direction." data-ko="현재의 연구 방향을 만든 프로젝트">Projects that define my research direction.</h2>
+          <p class="section-description i18n"
+             data-en="The first project is my central research platform. The following projects demonstrate complementary strengths in surface chemistry, functional materials, spectroscopy, data analysis, and multiphysics thinking."
+             data-ko="첫 번째 프로젝트가 현재 연구의 중심축이며, 이후 프로젝트들은 표면화학, 기능성 재료, 분광분석, 데이터 해석 및 멀티피직스 사고의 보완 역량을 보여줍니다.">
+            The first project is my central research platform. The following projects demonstrate complementary strengths in surface chemistry, functional materials, spectroscopy, data analysis, and multiphysics thinking.
+          </p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card reveal">
+            <aside class="project-side">
+              <div>
+                <div class="project-index">01</div>
+                <span class="project-type i18n" data-en="Current master's research" data-ko="현재 석사 연구">Current master's research</span>
+                <h3>PI–CNT–Metal Hybrid Conductors</h3>
+              </div>
+              <div class="project-keyline i18n" data-en="Polymer-supported metal thin films · engineered carbon interlayers · electrical reliability" data-ko="고분자 지지 금속박막 · 설계된 탄소 계면층 · 전기적 신뢰성">Polymer-supported metal thin films · engineered carbon interlayers · electrical reliability</div>
+            </aside>
+
+            <div class="project-main">
+              <p class="i18n"
+                 data-en="Metal films on compliant polymers can lose conductivity through cracking, delamination, and unstable film continuity. I investigate whether a buried CNT network can act as an <strong>engineered interphase</strong> that changes metal growth and failure—not merely as a parallel conductor after the metal breaks."
+                 data-ko="유연한 고분자 위 금속박막은 균열, 박리 및 불안정한 박막 연속성으로 인해 전도성을 잃을 수 있습니다. 저는 매립된 CNT 네트워크가 금속 파괴 후의 단순 병렬 도선이 아니라, 금속 성장과 파괴 양상을 바꾸는 <strong>설계 계면상</strong>으로 기능할 수 있는지를 연구합니다.">
+                Metal films on compliant polymers can lose conductivity through cracking, delamination, and unstable film continuity. I investigate whether a buried CNT network can act as an <strong>engineered interphase</strong> that changes metal growth and failure—not merely as a parallel conductor after the metal breaks.
+              </p>
+
+              <dl class="project-facts">
+                <div class="project-fact">
+                  <dt class="i18n" data-en="Research question" data-ko="연구 질문">Research question</dt>
+                  <dd class="i18n" data-en="How do CNT topology and surface condition alter film continuity, stress redistribution, crack onset, and resistance evolution?" data-ko="CNT 토폴로지와 표면 상태는 박막 연속성, 응력 재분배, 균열 개시 및 저항 변화를 어떻게 바꾸는가?">How do CNT topology and surface condition alter film continuity, stress redistribution, crack onset, and resistance evolution?</dd>
+                </div>
+                <div class="project-fact">
+                  <dt class="i18n" data-en="Current workflow" data-ko="현재 연구 흐름">Current workflow</dt>
+                  <dd class="i18n" data-en="CNT film preparation and transfer → metal deposition → tensile/electrical testing → crack and morphology analysis." data-ko="CNT 필름 제조·전사 → 금속 증착 → 인장·전기 측정 → 균열 및 형상 분석">CNT film preparation and transfer → metal deposition → tensile/electrical testing → crack and morphology analysis.</dd>
+                </div>
+                <div class="project-fact">
+                  <dt class="i18n" data-en="Mechanism controls" data-ko="메커니즘 비교군">Mechanism controls</dt>
+                  <dd>PI/metal · PI/CNT/metal · PI/functionalized-CNT/metal · CNT-only reference</dd>
+                </div>
+                <div class="project-fact">
+                  <dt class="i18n" data-en="Next validation" data-ko="다음 검증 단계">Next validation</dt>
+                  <dd class="i18n" data-en="Quantitative adhesion, cyclic reliability, thermal/environmental exposure, and correlation between morphology and ΔR/R₀." data-ko="정량 접착력, 반복 신뢰성, 열·환경 노출 및 형상과 ΔR/R₀의 상관관계">Quantitative adhesion, cyclic reliability, thermal/environmental exposure, and correlation between morphology and ΔR/R₀.</dd>
+                </div>
+              </dl>
+
+              <div class="project-tags" aria-label="Project methods">
+                <span class="tag">CNT transfer</span><span class="tag">PVD / e-beam deposition</span><span class="tag">Tensile–resistance testing</span><span class="tag">SEM / OM</span><span class="tag">Interface mechanics</span><span class="tag">Flexible conductors</span>
+              </div>
+
+              <p class="project-note i18n" data-en="Central claim to test: the CNT layer changes the topology and failure mechanism of the metal film, beyond providing a redundant conductive path." data-ko="핵심 검증 주장: CNT 층은 보조 전도경로를 제공하는 수준을 넘어 금속박막의 토폴로지와 파괴 메커니즘을 변화시킨다.">Central claim to test: the CNT layer changes the topology and failure mechanism of the metal film, beyond providing a redundant conductive path.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <aside class="project-side">
+              <div>
+                <div class="project-index">02</div>
+                <span class="project-type i18n" data-en="Active research direction" data-ko="진행 중인 연구 방향">Active research direction</span>
+                <h3 class="i18n" data-en="CNT Surface Chemistry &amp; Metal-Film Affinity" data-ko="CNT 표면화학과 금속박막 친화성">CNT Surface Chemistry &amp; Metal-Film Affinity</h3>
+              </div>
+              <div class="project-keyline i18n" data-en="Surface functionalization · wetting · nucleation · adhesion" data-ko="표면개질 · 젖음 · 핵생성 · 접착">Surface functionalization · wetting · nucleation · adhesion</div>
+            </aside>
+
+            <div class="project-main">
+              <p class="i18n"
+                 data-en="I am developing a surface-chemistry framework that links CNT oxidation or functionalization to metal-film growth and interface reliability. The objective is to replace the vague idea of ‘affinity’ with measurable quantities such as wettability, chemical state, nucleation density, film coverage, and interfacial strength."
+                 data-ko="CNT 산화 또는 기능화가 금속박막 성장과 계면 신뢰성에 미치는 영향을 연결하는 표면화학 프레임워크를 구축하고 있습니다. 모호한 ‘친화성’ 개념을 젖음성, 화학적 상태, 핵생성 밀도, 박막 피복도 및 계면 강도와 같은 측정 가능한 변수로 바꾸는 것이 목표입니다.">
+                I am developing a surface-chemistry framework that links CNT oxidation or functionalization to metal-film growth and interface reliability. The objective is to replace the vague idea of “affinity” with measurable quantities such as wettability, chemical state, nucleation density, film coverage, and interfacial strength.
+              </p>
+
+              <dl class="project-facts">
+                <div class="project-fact"><dt class="i18n" data-en="Chemical analysis" data-ko="화학 분석">Chemical analysis</dt><dd class="i18n" data-en="Raman and FTIR interpretation; contact-angle analysis for wettability; advanced surface analysis to be added where available." data-ko="Raman·FTIR 해석과 접촉각 기반 젖음성 분석, 장비 접근 시 고급 표면분석 추가">Raman and FTIR interpretation; contact-angle analysis for wettability; advanced surface analysis to be added where available.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Growth linkage" data-ko="성장 거동 연결">Growth linkage</dt><dd class="i18n" data-en="Surface functionality → nucleation and coverage → interface morphology → cracking and resistance stability." data-ko="표면 작용기 → 핵생성·피복 → 계면 형상 → 균열·저항 안정성">Surface functionality → nucleation and coverage → interface morphology → cracking and resistance stability.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Scientific value" data-ko="과학적 가치">Scientific value</dt><dd class="i18n" data-en="Separates true interface engineering from a simple increase in carbon content or total conductor thickness." data-ko="탄소 함량이나 전체 도선 두께 증가 효과와 실제 계면공학 효과를 분리">Separates true interface engineering from a simple increase in carbon content or total conductor thickness.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Target applications" data-ko="응용 분야">Target applications</dt><dd class="i18n" data-en="Flexible interconnects, advanced packaging, lightweight wiring, sensors, and electronics for harsh environments." data-ko="유연 인터커넥트, 첨단 패키징, 경량 배선, 센서 및 가혹환경 전자소자">Flexible interconnects, advanced packaging, lightweight wiring, sensors, and electronics for harsh environments.</dd></div>
+              </dl>
+
+              <div class="project-tags"><span class="tag">Surface functionalization</span><span class="tag">Raman</span><span class="tag">FTIR</span><span class="tag">Contact angle</span><span class="tag">Metal nucleation</span><span class="tag">Adhesion</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <aside class="project-side">
+              <div>
+                <div class="project-index">03</div>
+                <span class="project-type i18n" data-en="Functional materials research" data-ko="기능성 재료 연구">Functional materials research</span>
+                <h3 class="i18n" data-en="Electrospun Thermoelectric Composite Fibers" data-ko="전기방사 열전 복합섬유">Electrospun Thermoelectric Composite Fibers</h3>
+              </div>
+              <div class="project-keyline">PVA · PEDOT:PSS · GO · MoS₂</div>
+            </aside>
+
+            <div class="project-main">
+              <p class="i18n"
+                 data-en="I studied electrospun PVA/PEDOT:PSS fibers incorporating GO and MoS₂, connecting composition and processing to electrical conductivity, Seebeck response, and spectroscopic signatures. This project strengthened my ability to analyze multicomponent functional materials rather than optimizing one measurement in isolation."
+                 data-ko="GO와 MoS₂를 포함한 PVA/PEDOT:PSS 전기방사 섬유에서 조성과 공정을 전기전도도, 제벡 응답 및 분광학적 특성과 연결해 분석했습니다. 이를 통해 하나의 수치만 최적화하는 대신 다성분 기능성 재료를 통합적으로 해석하는 역량을 키웠습니다.">
+                I studied electrospun PVA/PEDOT:PSS fibers incorporating GO and MoS₂, connecting composition and processing to electrical conductivity, Seebeck response, and spectroscopic signatures. This project strengthened my ability to analyze multicomponent functional materials rather than optimizing one measurement in isolation.
+              </p>
+
+              <dl class="project-facts">
+                <div class="project-fact"><dt class="i18n" data-en="Processing" data-ko="공정">Processing</dt><dd class="i18n" data-en="Electrospinning and composition-controlled composite-fiber fabrication." data-ko="전기방사 및 조성 제어형 복합섬유 제작">Electrospinning and composition-controlled composite-fiber fabrication.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Transport" data-ko="수송특성">Transport</dt><dd class="i18n" data-en="Electrical conductivity and Seebeck measurements with attention to measurement reliability." data-ko="측정 신뢰성을 고려한 전기전도도 및 제벡 계수 평가">Electrical conductivity and Seebeck measurements with attention to measurement reliability.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Spectroscopy" data-ko="분광분석">Spectroscopy</dt><dd class="i18n" data-en="Raman mapping and FTIR peak analysis to connect chemical interaction with transport behavior." data-ko="화학적 상호작용과 수송거동을 연결하기 위한 Raman mapping 및 FTIR 피크 분석">Raman mapping and FTIR peak analysis to connect chemical interaction with transport behavior.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Transferable skill" data-ko="전이 가능한 역량">Transferable skill</dt><dd class="i18n" data-en="Composition–structure–property analysis across conductive polymers, carbon materials, and 2D fillers." data-ko="전도성 고분자, 탄소재료 및 2D 필러의 조성–구조–물성 상관관계 분석">Composition–structure–property analysis across conductive polymers, carbon materials, and 2D fillers.</dd></div>
+              </dl>
+
+              <div class="project-tags"><span class="tag">Electrospinning</span><span class="tag">PEDOT:PSS</span><span class="tag">GO / MoS₂</span><span class="tag">Seebeck</span><span class="tag">Raman mapping</span><span class="tag">FTIR fitting</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <aside class="project-side">
+              <div>
+                <div class="project-index">04</div>
+                <span class="project-type i18n" data-en="Computational capability &amp; next direction" data-ko="계산 역량 및 확장 방향">Computational capability &amp; next direction</span>
+                <h3 class="i18n" data-en="CFD &amp; Multiphysics for Materials Processing" data-ko="재료공정 CFD 및 멀티피직스">CFD &amp; Multiphysics for Materials Processing</h3>
+              </div>
+              <div class="project-keyline i18n" data-en="Transport · heat transfer · reactor flow · process uniformity" data-ko="물질전달 · 열전달 · 반응기 유동 · 공정 균일도">Transport · heat transfer · reactor flow · process uniformity</div>
+            </aside>
+
+            <div class="project-main">
+              <p class="i18n"
+                 data-en="My CFD experience gives me a quantitative foundation for transport-dominated problems. I aim to apply it to materials processing—particularly CVD/ALD reactor flow, precursor delivery, purge dynamics, thermal uniformity, and ultimately the coupling between processing history and interface quality."
+                 data-ko="CFD 경험을 통해 수송현상이 지배적인 문제를 정량적으로 다루는 기반을 갖추었습니다. 이를 CVD/ALD 반응기 유동, 전구체 공급, 퍼지 동역학, 열 균일도 및 공정 이력과 계면 품질의 연계 문제로 확장하고자 합니다.">
+                My CFD experience gives me a quantitative foundation for transport-dominated problems. I aim to apply it to materials processing—particularly CVD/ALD reactor flow, precursor delivery, purge dynamics, thermal uniformity, and ultimately the coupling between processing history and interface quality.
+              </p>
+
+              <dl class="project-facts">
+                <div class="project-fact"><dt class="i18n" data-en="Current capability" data-ko="현재 역량">Current capability</dt><dd class="i18n" data-en="CFD model setup, boundary-condition reasoning, parametric comparison, and interpretation of flow-dependent responses." data-ko="CFD 모델 구성, 경계조건 설정 논리, 파라미터 비교 및 유동 의존 응답 해석">CFD model setup, boundary-condition reasoning, parametric comparison, and interpretation of flow-dependent responses.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Materials-processing extension" data-ko="재료공정 확장">Materials-processing extension</dt><dd class="i18n" data-en="Gas transport and heat transfer in CVD/ALD chambers; transient valve and purge sequences; deposition-uniformity analysis." data-ko="CVD/ALD 챔버 내 가스·열전달, 밸브 및 퍼지의 비정상 시퀀스, 증착 균일도 분석">Gas transport and heat transfer in CVD/ALD chambers; transient valve and purge sequences; deposition-uniformity analysis.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Device-level extension" data-ko="소자 수준 확장">Device-level extension</dt><dd class="i18n" data-en="Joule heating, thermal dissipation in vacuum, and thermomechanical loading of hybrid conductors." data-ko="하이브리드 도선의 줄가열, 진공 열방출 및 열기계 하중 해석">Joule heating, thermal dissipation in vacuum, and thermomechanical loading of hybrid conductors.</dd></div>
+                <div class="project-fact"><dt class="i18n" data-en="Research philosophy" data-ko="연구 철학">Research philosophy</dt><dd class="i18n" data-en="Use modeling to choose decisive experiments and explain mechanisms—not as a disconnected software exercise." data-ko="모델링을 독립된 소프트웨어 작업이 아니라 결정적인 실험을 설계하고 메커니즘을 설명하는 도구로 활용">Use modeling to choose decisive experiments and explain mechanisms—not as a disconnected software exercise.</dd></div>
+              </dl>
+
+              <div class="project-tags"><span class="tag">CFD</span><span class="tag">Python</span><span class="tag">Heat transfer</span><span class="tag">Species transport</span><span class="tag">Transient simulation</span><span class="tag">Process modeling</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contribution">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker i18n" data-en="Potential contribution" data-ko="기여 가능성">Potential contribution</div>
+          <h2 class="i18n" data-en="How I can contribute in a PhD laboratory." data-ko="박사과정 연구실에서의 기여 방식">How I can contribute in a PhD laboratory.</h2>
+        </div>
+
+        <div class="contribution-layout reveal">
+          <div class="contribution-intro">
+            <h3 class="i18n" data-en="A researcher who can connect the interface to the system." data-ko="계면과 시스템을 연결하는 연구자">A researcher who can connect the interface to the system.</h3>
+            <p class="i18n"
+               data-en="I can enter a project at the materials level—surface treatment, film growth, morphology, and adhesion—and carry the question through electrical failure, environmental reliability, and transport modeling. This breadth is most valuable when it is organized around one mechanism and a rigorous control matrix."
+               data-ko="표면처리, 박막 성장, 형상 및 접착과 같은 재료 수준에서 연구를 시작해 전기적 파괴, 환경 신뢰성 및 수송 모델링까지 질문을 확장할 수 있습니다. 이러한 폭은 하나의 메커니즘과 엄격한 비교군을 중심으로 정리될 때 가장 큰 가치가 있습니다.">
+              I can enter a project at the materials level—surface treatment, film growth, morphology, and adhesion—and carry the question through electrical failure, environmental reliability, and transport modeling. This breadth is most valuable when it is organized around one mechanism and a rigorous control matrix.
+            </p>
+            <div class="signature-line i18n"
+                 data-en="I aim to help a laboratory move from “this material performs better” to “this interface changes the growth and failure mechanism for a measurable reason.”"
+                 data-ko="저는 연구실이 ‘이 재료가 더 좋다’는 수준을 넘어 ‘이 계면이 측정 가능한 이유로 성장 및 파괴 메커니즘을 바꾼다’고 설명할 수 있도록 기여하고자 합니다.">
+              I aim to help a laboratory move from “this material performs better” to “this interface changes the growth and failure mechanism for a measurable reason.”
+            </div>
+          </div>
+
+          <div class="contribution-grid">
+            <article class="contribution-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l4-4 3 3 5-7 4 4"/><path d="M4 21h16M6 8V3h12v5"/></svg>
+              <h4 class="i18n" data-en="Build decisive experiments" data-ko="결정적인 실험 설계">Build decisive experiments</h4>
+              <p class="i18n" data-en="Create control matrices that isolate surface chemistry, CNT topology, thickness, and true interface effects." data-ko="표면화학, CNT 토폴로지, 두께 및 실제 계면 효과를 분리하는 비교군을 구성합니다.">Create control matrices that isolate surface chemistry, CNT topology, thickness, and true interface effects.</p>
+            </article>
+
+            <article class="contribution-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="5"/><path d="M13 13l7 7M6 9h6M9 6v6"/></svg>
+              <h4 class="i18n" data-en="Connect structure to failure" data-ko="구조와 파괴 연결">Connect structure to failure</h4>
+              <p class="i18n" data-en="Relate surface state and morphology to crack onset, delamination mode, and resistance evolution." data-ko="표면 상태와 형상을 균열 개시, 박리 모드 및 저항 변화와 연결합니다.">Relate surface state and morphology to crack onset, delamination mode, and resistance evolution.</p>
+            </article>
+
+            <article class="contribution-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+              <h4 class="i18n" data-en="Quantify reliability" data-ko="신뢰성 정량화">Quantify reliability</h4>
+              <p class="i18n" data-en="Move from one-time performance to cyclic, thermal, environmental, and current-carrying stability." data-ko="일회성 성능에서 반복, 열, 환경 및 전류부하 안정성 평가로 확장합니다.">Move from one-time performance to cyclic, thermal, environmental, and current-carrying stability.</p>
+            </article>
+
+            <article class="contribution-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 14h6v6h-6zM14 4h6M17 4v6M4 14v6h6"/><path d="M10 7h4M17 10v4M14 17h-4M7 14v-4"/></svg>
+              <h4 class="i18n" data-en="Model transport and processing" data-ko="수송·공정 모델링">Model transport and processing</h4>
+              <p class="i18n" data-en="Use CFD and Python to examine reactor delivery, thermal loads, Joule heating, and coupled process–property relationships." data-ko="CFD와 Python을 활용해 반응기 공급, 열하중, 줄가열 및 공정–물성 연계를 분석합니다.">Use CFD and Python to examine reactor delivery, thermal loads, Joule heating, and coupled process–property relationships.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker i18n" data-en="Technical foundation" data-ko="기술 기반">Technical foundation</div>
+          <h2 class="i18n" data-en="Methods I can use—and methods I am actively developing." data-ko="현재 활용 가능한 기술과 확장 중인 기술">Methods I can use—and methods I am actively developing.</h2>
+          <p class="section-description i18n" data-en="The labels below deliberately distinguish hands-on experience from planned or developing capabilities." data-ko="아래 구분은 실제 실험 경험과 향후 개발 중인 역량을 의도적으로 구분한 것입니다.">The labels below deliberately distinguish hands-on experience from planned or developing capabilities.</p>
+        </div>
+
+        <div class="skills-layout">
+          <article class="skill-group reveal">
+            <div class="skill-group-header"><h3 class="i18n" data-en="Fabrication &amp; processing" data-ko="제작 및 공정">Fabrication &amp; processing</h3><span class="skill-level i18n" data-en="Hands-on" data-ko="실무 경험">Hands-on</span></div>
+            <ul class="skill-list">
+              <li>CNT film preparation, filtration, transfer, and network control</li>
+              <li>Polymer-supported thin-film sample fabrication</li>
+              <li>Metal thin-film deposition by vacuum/e-beam processing</li>
+              <li>Electrospinning of conductive composite fibers</li>
+              <li>CVD equipment and gas-process workflow familiarity</li>
+            </ul>
+          </article>
+
+          <article class="skill-group reveal">
+            <div class="skill-group-header"><h3 class="i18n" data-en="Characterization &amp; reliability" data-ko="특성평가 및 신뢰성">Characterization &amp; reliability</h3><span class="skill-level i18n" data-en="Hands-on" data-ko="실무 경험">Hands-on</span></div>
+            <ul class="skill-list">
+              <li>Electrical resistance under tensile deformation</li>
+              <li>Optical and scanning-electron microscopy interpretation</li>
+              <li>Raman spectroscopy and spatial mapping</li>
+              <li>FTIR peak fitting and chemical-interaction analysis</li>
+              <li>Electrical conductivity, Hall/Seebeck measurement workflows</li>
+            </ul>
+          </article>
+
+          <article class="skill-group reveal">
+            <div class="skill-group-header"><h3 class="i18n" data-en="Modeling &amp; data" data-ko="모델링 및 데이터">Modeling &amp; data</h3><span class="skill-level i18n" data-en="Working / developing" data-ko="활용·개발 중">Working / developing</span></div>
+            <ul class="skill-list">
+              <li>CFD model setup, parameter studies, and physical interpretation</li>
+              <li>Python-based data processing, fitting, visualization, and automation</li>
+              <li>Statistical comparison and reproducible analysis workflows</li>
+              <li>CVD/ALD species transport and transient purge modeling</li>
+              <li>Thermal, Joule-heating, and interface-degradation modeling</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="outputs">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-kicker i18n" data-en="Research output" data-ko="연구 성과">Research output</div>
+          <h2 class="i18n" data-en="Work in progress, represented accurately." data-ko="현재 상태를 정확히 표시한 연구 성과">Work in progress, represented accurately.</h2>
+        </div>
+
+        <article class="output-card reveal">
+          <div class="output-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM14 3v4h4M9 12h6M9 16h6M9 8h2" /></svg>
+          </div>
+          <div>
+            <h3 class="i18n" data-en="Surface-engineered CNT interlayers for mechanically reliable metal thin-film conductors on polyimide" data-ko="폴리이미드 기반 금속박막 도선의 기계적 신뢰성 향상을 위한 표면개질 CNT 계면층">Surface-engineered CNT interlayers for mechanically reliable metal thin-film conductors on polyimide</h3>
+            <p class="i18n" data-en="Working title. The manuscript status should be updated here only after the actual submission status changes." data-ko="가제입니다. 실제 투고 상태가 변경된 뒤에만 이 페이지의 상태를 수정하도록 구성했습니다.">Working title. The manuscript status should be updated here only after the actual submission status changes.</p>
+          </div>
+          <span class="output-status i18n" data-en="In preparation" data-ko="작성 중">In preparation</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="beyond-materials">
+      <div class="container">
+        <div class="interdisciplinary-card reveal">
+          <div>
+            <div class="section-kicker i18n" data-en="Interdisciplinary perspective" data-ko="융합 연구 관점">Interdisciplinary perspective</div>
+            <h3 class="i18n" data-en="Systems research beyond materials" data-ko="재료를 넘어선 시스템 연구 경험">Systems research beyond materials</h3>
+            <p class="i18n"
+               data-en="My work in learning-based spacecraft berthing and robotics developed a complementary systems mindset: define measurable success criteria, integrate simulation and experiment, manage high-dimensional data, and debug an entire pipeline rather than one isolated component. I apply that discipline to materials research without allowing it to dilute my primary identity in interfaces and electronic materials."
+               data-ko="학습 기반 우주선 버팅과 로보틱스 연구를 통해 측정 가능한 성공기준 설정, 시뮬레이션–실험 통합, 고차원 데이터 관리 및 전체 파이프라인 디버깅 역량을 쌓았습니다. 이 시스템적 사고를 재료 연구에 적용하되, 계면·전자재료라는 핵심 정체성을 흐리지 않도록 구성하고 있습니다.">
+              My work in learning-based spacecraft berthing and robotics developed a complementary systems mindset: define measurable success criteria, integrate simulation and experiment, manage high-dimensional data, and debug an entire pipeline rather than one isolated component. I apply that discipline to materials research without allowing it to dilute my primary identity in interfaces and electronic materials.
+            </p>
+          </div>
+          <div class="interdisciplinary-symbol" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="7"/><path d="M32 8v17M32 39v17M8 32h17M39 32h17M15 15l12 12M37 37l12 12M49 15L37 27M27 37L15 49"/><circle cx="32" cy="8" r="3"/><circle cx="56" cy="32" r="3"/><circle cx="32" cy="56" r="3"/><circle cx="8" cy="32" r="3"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="section-kicker" style="color: rgba(255,255,255,0.68);">PhD · Collaboration · Research discussion</div>
+          <h2 class="i18n" data-en="Interested in interfaces, thin-film reliability, or extreme-environment electronics?" data-ko="계면, 박막 신뢰성 또는 극한환경 전자재료를 연구하시나요?">Interested in interfaces, thin-film reliability, or extreme-environment electronics?</h2>
+          <p class="i18n" data-en="I am preparing for PhD opportunities where I can deepen interface mechanics, thin-film growth, surface science, and multiphysics modeling while contributing hands-on experimental experience." data-ko="계면역학, 박막 성장, 표면과학 및 멀티피직스 모델링을 심화하면서 실제 실험 경험으로 기여할 수 있는 박사과정 기회를 준비하고 있습니다.">I am preparing for PhD opportunities where I can deepen interface mechanics, thin-film growth, surface science, and multiphysics modeling while contributing hands-on experimental experience.</p>
+          <div class="contact-actions">
+            <a class="button button-primary profile-link" data-link="email" href="mailto:your.email@example.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+              <span class="i18n" data-en="Start a conversation" data-ko="이메일 보내기">Start a conversation</span>
+            </a>
+            <a class="button profile-link" data-link="github" href="https://github.com/your-id" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.4-4.5-2.5-6-3M15 22v-3.9c0-1.1.4-2 1-2.6 3.3-.4 6.8-1.6 6.8-7.3 0-1.6-.6-2.9-1.5-3.9.2-.4.7-1.9-.1-3.8 0 0-1.2-.4-4 1.5a13.8 13.8 0 0 0-7.3 0C7.1.1 5.9.5 5.9.5c-.8 1.9-.3 3.4-.1 3.8-.9 1-1.5 2.3-1.5 3.9 0 5.7 3.5 6.9 6.8 7.3-.5.5-.8 1.2-.9 2.1V22" /></svg>
+              GitHub
+            </a>
+            <a class="button profile-link" data-link="linkedin" href="#" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v9M6 6.5v.01M10 18v-5c0-2 1-4 3.5-4S18 10.8 18 13v5M10 9v9" /></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> <span data-profile="name">YOUR NAME</span>. <span class="i18n" data-en="Built as a lightweight, dependency-free GitHub Pages site." data-ko="외부 의존성 없이 동작하는 GitHub Pages 사이트입니다.">Built as a lightweight, dependency-free GitHub Pages site.</span></div>
+      <div class="footer-links">
+        <a class="profile-link" data-link="github" href="https://github.com/your-id" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="profile-link" data-link="scholar" href="#" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a class="profile-link" data-link="email" href="mailto:your.email@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      ================================================================
+      EDIT THIS OBJECT FIRST.
+      Empty optional links are automatically hidden.
+      ================================================================
+    */
+    const PROFILE = {
+      name: "YOUR NAME",
+      initials: "YN",
+      role: "M.S. Researcher in Materials Science & Engineering",
+      institution: "YOUR UNIVERSITY · YOUR LABORATORY",
+      location: "Republic of Korea",
+      applicationCycle: "Preparing for Fall 2027 PhD applications",
+      email: "your.email@example.com",
+      github: "https://github.com/your-id",
+      linkedin: "",
+      scholar: "",
+      cv: "assets/CV.pdf"
+    };
+
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const languageToggle = document.getElementById("languageToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function applyProfile() {
+      document.querySelectorAll("[data-profile]").forEach((element) => {
+        const key = element.dataset.profile;
+        if (PROFILE[key]) element.textContent = PROFILE[key];
+      });
+
+      document.querySelectorAll("[data-link]").forEach((element) => {
+        const key = element.dataset.link;
+        const value = PROFILE[key];
+
+        if (!value) {
+          element.hidden = true;
+          return;
+        }
+
+        if (key === "email") {
+          element.href = `mailto:${value}`;
+        } else {
+          element.href = value;
+        }
+      });
+
+      document.title = `${PROFILE.name} | Interfacial Electronic Materials`;
+      document.querySelector('meta[name="author"]').setAttribute("content", PROFILE.name);
+      document.querySelector('meta[property="og:title"]').setAttribute("content", `${PROFILE.name} | Interfacial Electronic Materials`);
+
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": PROFILE.name,
+        "email": PROFILE.email ? `mailto:${PROFILE.email}` : undefined,
+        "affiliation": PROFILE.institution,
+        "homeLocation": PROFILE.location,
+        "url": PROFILE.github,
+        "sameAs": [PROFILE.github, PROFILE.linkedin, PROFILE.scholar].filter(Boolean),
+        "knowsAbout": [
+          "Interfacial electronic materials",
+          "Metal thin films",
+          "Carbon nanotube interphases",
+          "Polymer-supported conductors",
+          "Thin-film reliability",
+          "CFD and multiphysics modeling",
+          "Extreme-environment electronics"
+        ]
+      };
+
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(structuredData);
+      document.head.appendChild(script);
+    }
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      localStorage.setItem("portfolio-theme", theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#080b10" : "#f5f7fb");
+
+      themeIcon.innerHTML = theme === "dark"
+        ? '<path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z" />'
+        : '<path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42" /><circle cx="12" cy="12" r="4" />';
+    }
+
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll(".i18n").forEach((element) => {
+        const content = element.dataset[language];
+        if (content) element.innerHTML = content;
+      });
+      languageToggle.textContent = language === "en" ? "KO" : "EN";
+      languageToggle.setAttribute("aria-label", language === "en" ? "한국어로 전환" : "Switch to English");
+      localStorage.setItem("portfolio-language", language);
+    }
+
+    themeToggle.addEventListener("click", () => {
+      setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+    });
+
+    languageToggle.addEventListener("click", () => {
+      setLanguage(document.documentElement.lang === "en" ? "ko" : "en");
+    });
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10 });
+
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+    applyProfile();
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    setTheme(savedTheme || preferredTheme);
+
+    const savedLanguage = localStorage.getItem("portfolio-language") || "en";
+    setLanguage(savedLanguage);
+  </script>
 </body>
 </html>
-출처: https://recording-it.tistory.com/127 [나를 위한 꾸준한 기록 - 다시개발:티스토리]
