@@ -57,6 +57,13 @@
         <div class="hero-copy">
           <div class="hero-identity">
             <h1>Man-Ki Moon <span>문만기</span></h1>
+            <img
+              class="profile-photo"
+              src="assets/profile.png"
+              alt="Man-Ki Moon profile photo"
+              width="877"
+              height="1315"
+            />
           </div>
           <p class="hero-lede">
             I am an M.S. student in Materials Science and Engineering at <a href="https://www.gachon.ac.kr/eng/index.do" target="_blank" rel="noreferrer">Gachon University</a>. My research focuses on thin-film growth, surface chemistry, engineered interfaces, and electrical reliability for electronic materials and extreme environments.
@@ -88,20 +95,14 @@
                 A buried LWCNT mesh is studied as an engineered interphase beneath an aluminum film to preserve electrical continuity as cracks form during tensile deformation.
               </p>
               <div class="research-figures">
-                <figure class="research-figure">
+                <figure class="research-figure utm-figure">
                   <video controls muted playsinline preload="metadata" src="assets/research/utm/utm-tensile-test.mp4" aria-label="UTM tensile testing of a flexible thin-film conductor"></video>
                   <figcaption>UTM tensile test with simultaneous electrical-resistance monitoring.</figcaption>
                 </figure>
-                <figure class="research-figure">
-                  <img
-                    src="assets/research/cvd/01-chamber-c2h2.gif"
-                    alt="C2H2 transport in a CVD chamber"
-                    width="1000"
-                    height="600"
-                    loading="lazy"
-                  />
-                  <figcaption>CVD process modeling: chamber-scale precursor transport.</figcaption>
-                </figure>
+              </div>
+              <div class="project-subtopic">
+                <strong>CNT Surface Chemistry and Metal-Film Affinity</strong>
+                <span>Surface functionalization, wettability, nucleation, adhesion, and crack resistance are treated as connected interface variables within this conductor platform.</span>
               </div>
               <div class="card-links">
                 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6999268" target="_blank" rel="noreferrer">SSRN</a>
@@ -117,12 +118,10 @@
               <p>
                 A compact OpenFOAM model connecting C₂H₂ transport, surface consumption, catalyst state, and CNT growth response to support process-variable analysis.
               </p>
-              <div class="video-embed" aria-label="CVD catalyst and CNT response simulation">
-                <img src="assets/research/cvd/02-catalyst-cnt-response.gif" alt="Catalyst activity and CNT response during CVD" loading="lazy" />
-              </div>
-              <div class="card-links">
-                <a href="assets/research/cvd/01-chamber-c2h2.gif" target="_blank" rel="noreferrer">Chamber transport</a>
-                <a href="assets/research/cvd/03-gas-surface-consumption.gif" target="_blank" rel="noreferrer">Surface consumption</a>
+              <div class="simulation-gallery" aria-label="OpenFOAM CVD simulation outputs">
+                <figure><img src="assets/research/cvd/01-chamber-c2h2.gif" alt="C2H2 transport in the CVD chamber" loading="lazy" /><figcaption>Chamber transport</figcaption></figure>
+                <figure><img src="assets/research/cvd/02-catalyst-cnt-response.gif" alt="Catalyst activity and CNT response during CVD" loading="lazy" /><figcaption>Catalyst and CNT response</figcaption></figure>
+                <figure><img src="assets/research/cvd/03-gas-surface-consumption.gif" alt="Gas inventory and surface consumption during CVD" loading="lazy" /><figcaption>Gas-surface consumption</figcaption></figure>
               </div>
             </article>
 
@@ -134,19 +133,6 @@
               <h3>Electrospun PVA/PEDOT:PSS–GO/MoS₂ Nanofibers</h3>
               <p>
                 Spatial Raman mapping, FTIR, transport measurements, and DFT were combined to connect interfacial reorganization with thermoelectric performance.
-              </p>
-            </article>
-
-            <article class="work-card" data-tags="surface-chemistry interface">
-              <div class="card-topline">
-                <span>Surface and interface engineering</span>
-                <span>Ongoing</span>
-              </div>
-              <h3>
-                CNT Surface Chemistry and Metal-Film Affinity
-              </h3>
-              <p>
-                Surface functionalization, wettability, nucleation, adhesion, and crack resistance are treated as connected interface variables.
               </p>
             </article>
 

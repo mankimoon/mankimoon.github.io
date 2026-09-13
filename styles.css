@@ -64,8 +64,17 @@ button, input, textarea, select { font: inherit; }
 .video-embed iframe, .video-embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
 .research-figure { width: 100%; margin: 0; }
-.research-figure img { display: block; width: 100%; height: auto; background: #fff; }
+.research-figure img, .research-figure video { display: block; width: 100%; height: auto; background: #fff; }
+.research-figure video { max-height: 180px; object-fit: contain; background: #000; }
+.utm-figure { width: 33.333%; }
 .research-figure figcaption { margin-top: 4px; color: var(--quiet); font-size: .74rem; }
+.project-subtopic { display: grid; gap: 4px; width: min(100%, 680px); margin-top: 15px; padding: 10px 12px; border-left: 2px solid var(--link); background: rgba(11, 94, 146, .05); }
+.project-subtopic strong { font-size: .82rem; }
+.project-subtopic span { color: var(--muted); font-size: .84rem; }
+.simulation-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.simulation-gallery figure { min-width: 0; margin: 0; }
+.simulation-gallery img { display: block; width: 100%; aspect-ratio: 1.25 / 1; object-fit: cover; background: #000; }
+.simulation-gallery figcaption { margin-top: 4px; color: var(--quiet); font-size: .7rem; }
 .card-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
 .card-links a { color: var(--link); font-size: .84rem; font-weight: 400; }
 .contact { padding-top: 34px; }
@@ -96,6 +105,8 @@ button, input, textarea, select { font: inherit; }
   .award-photo { width: 110px; height: 82px; }
   .award-date { display: flex; justify-content: space-between; margin-bottom: 5px; }
   .award-date span, .award-date strong { display: inline; }
+  .utm-figure { width: 100%; }
+  .simulation-gallery { grid-template-columns: 1fr; }
   .work-card h3, .work-card.featured h3, .work-card p, .video-embed, .research-figures, .card-links { grid-column: 1; }
   .card-topline { grid-column: 1; grid-row: auto; display: flex; justify-content: space-between; margin-bottom: 5px; }
   .card-topline span + span { margin-top: 0; }
