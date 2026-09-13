@@ -1,0 +1,105 @@
+:root { color-scheme: light; --ink: #161616; --muted: #555; --quiet: #777; --link: #0b5e92; --paper: #fff; --line: #e2e2e2; --max-width: 880px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: underline; text-decoration-color: #8bb3cb; text-underline-offset: 3px; }
+a:hover, a:focus-visible { color: var(--ink); text-decoration-color: var(--ink); }
+button, input, textarea, select { font: inherit; }
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 10; transform: translateY(-160%); background: #111; color: #fff; padding: 8px 12px; }
+.skip-link:focus { transform: translateY(0); }
+.site-nav, .hero-content, .section-inner, .footer-inner { width: min(var(--max-width), calc(100% - 48px)); margin: 0 auto; }
+.site-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+.nav-brand { color: var(--ink); font-weight: 600; text-decoration: none; }
+.brand-mark { display: none; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: .9rem; }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); text-decoration: underline; }
+.hero-content { padding: 30px 0 38px; }
+.hero-copy { position: relative; min-height: 162px; padding-right: 164px; }
+.hero h1 { margin: 0; font-size: 2rem; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; }
+.hero h1 span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; font-weight: 400; letter-spacing: 0; }
+.profile-photo { position: absolute; top: 0; right: 0; width: 128px; height: 162px; object-fit: cover; object-position: center 56%; }
+.hero-lede { max-width: 650px; margin: 21px 0 0; color: var(--muted); font-size: 1rem; }
+.hero-actions { display: flex; margin-top: 13px; }
+.primary-link, .secondary-link, .text-link, .card-links a, .contact-panel a { color: var(--link); font-size: .9rem; font-weight: 600; }
+.section-band { padding: 26px 0; }
+.section-heading { margin-bottom: 16px; }
+.section-heading h2 { margin: 0; font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; }
+.section-kicker { margin: 0 0 3px; color: var(--quiet); font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.award-grid { display: grid; gap: 18px; }
+.award-card { padding: 0; }
+.award-card + .award-card { padding-top: 18px; border-top: 1px solid var(--line); }
+.award-body { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; }
+.award-date { color: var(--quiet); font-size: .8rem; line-height: 1.35; }
+.award-date span, .award-date strong { display: block; }
+.award-date strong { color: var(--ink); }
+.award-event { margin: 0 0 2px; color: var(--quiet); font-size: .82rem; }
+.award-copy h3 { margin: 0 0 4px; font-size: 1rem; font-weight: 600; line-height: 1.35; }
+.award-copy p:last-child { margin: 0; color: var(--muted); font-size: .92rem; }
+.award-content { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 16px; align-items: start; }
+.award-photo { display: block; width: 150px; height: 104px; object-fit: cover; }
+.korean-title { display: block; margin-top: 2px; color: var(--quiet); font-size: .84em; font-weight: 400; line-height: 1.4; }
+.experience-card { padding-top: 18px; border-top: 1px solid var(--line); }
+.experience-card .award-body { max-width: 760px; }
+.ohgym-logo { display: block; width: 164px; height: auto; margin: 8px 0 10px; }
+.ohgym-summary h3 { margin-bottom: 3px; }
+.ohgym-details { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 5px !important; color: var(--ink) !important; font-size: .8rem !important; font-weight: 600; }
+.ohgym-details span + span::before { content: "·"; margin-right: 12px; color: var(--quiet); }
+.ohgym-description { margin-bottom: 0 !important; }
+.ohgym-media { width: 250px; margin-top: 13px; }
+.ohgym-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.ohgym-video-button { position: relative; display: block; min-width: 0; padding: 0; overflow: hidden; border: 0; background: #000; cursor: zoom-in; aspect-ratio: 3 / 4; }
+.ohgym-video-button video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ohgym-video-button span { position: absolute; right: 5px; bottom: 5px; padding: 2px 4px; background: rgba(255, 255, 255, .9); color: #111; font-size: .63rem; font-weight: 600; }
+.experience-link { display: inline-flex; margin-top: 9px; color: var(--link); font-size: .84rem; }
+.work-grid { display: grid; gap: 23px; }
+.work-card, .work-card.featured { display: grid; grid-template-columns: 118px minmax(0, 1fr); column-gap: 18px; padding: 0; background: transparent; }
+.card-topline { grid-column: 1; grid-row: 1 / span 8; color: var(--quiet); font-size: .78rem; line-height: 1.4; }
+.card-topline span { display: block; }
+.card-topline span + span { margin-top: 3px; }
+.work-card h3, .work-card.featured h3 { grid-column: 2; margin: 0 0 5px; font-size: 1rem; font-weight: 600; line-height: 1.4; }
+.work-card p, .video-embed, .research-figures, .card-links { grid-column: 2; }
+.work-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+.video-embed { position: relative; width: min(100%, 410px); margin: 10px 0 0; overflow: hidden; aspect-ratio: 16 / 9; background: #000; }
+.video-embed iframe, .video-embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
+.research-figure { width: 100%; margin: 0; }
+.research-figure img { display: block; width: 100%; height: auto; background: #fff; }
+.research-figure figcaption { margin-top: 4px; color: var(--quiet); font-size: .74rem; }
+.card-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
+.card-links a { color: var(--link); font-size: .84rem; font-weight: 400; }
+.contact { padding-top: 34px; }
+.contact-panel { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.contact-panel a { font-size: .9rem; }
+.site-footer { padding: 23px 0 30px; color: var(--quiet); font-size: .78rem; }
+.footer-inner p { margin: 0; }
+.video-dialog { width: min(92vw, 720px); max-width: none; margin: auto; padding: 14px; border: 1px solid #222; background: #fff; }
+.video-dialog::backdrop { background: rgba(0, 0, 0, .72); }
+.video-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 10px; }
+.video-dialog-header p { margin: 0; font-size: .9rem; font-weight: 600; }
+.video-dialog-close { padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: .8rem; text-decoration: underline; text-underline-offset: 3px; }
+.video-dialog-player { display: block; width: 100%; max-height: 76svh; background: #000; }
+.is-hidden { display: none; }
+:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+@media (max-width: 620px) {
+  .site-nav, .hero-content, .section-inner, .footer-inner { width: min(var(--max-width), calc(100% - 32px)); }
+  .site-nav { align-items: flex-start; flex-direction: column; gap: 10px; padding: 18px 0; }
+  .nav-links { gap: 14px; }
+  .hero-content { padding: 24px 0 30px; }
+  .hero-copy { min-height: 0; padding-right: 0; }
+  .hero-identity { display: flex; flex-direction: column; }
+  .profile-photo { position: static; order: -1; width: 100px; height: 126px; margin-bottom: 18px; }
+  .hero h1 { font-size: 1.75rem; }
+  .section-band { padding: 22px 0; }
+  .award-body, .work-card, .work-card.featured { grid-template-columns: 1fr; gap: 0; }
+  .award-content { grid-template-columns: minmax(0, 1fr) 110px; gap: 12px; }
+  .award-photo { width: 110px; height: 82px; }
+  .award-date { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .award-date span, .award-date strong { display: inline; }
+  .work-card h3, .work-card.featured h3, .work-card p, .video-embed, .research-figures, .card-links { grid-column: 1; }
+  .card-topline { grid-column: 1; grid-row: auto; display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .card-topline span + span { margin-top: 0; }
+  .ohgym-details span + span::before { display: none; }
+  .ohgym-description { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
