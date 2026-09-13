@@ -74,7 +74,7 @@ button, input, textarea, select { font: inherit; }
 .project-subtopic span { color: var(--muted); font-size: .84rem; }
 .simulation-gallery { display: grid; grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; row-gap: 24px; width: 100%; min-width: 0; max-width: 100%; margin-top: 12px; overflow: hidden; }
 .simulation-gallery figure { display: block; min-width: 0; width: 100%; max-width: 100%; margin: 0; padding: 8px; overflow: hidden; background: #f1f1f1; border: 1px solid #d6d6d6; }
-.simulation-gallery img { display: block; width: 100%; max-width: 100%; min-width: 0; height: 220px; object-fit: contain; background: #000; }
+.simulation-gallery img { display: block; width: 100%; max-width: 100%; min-width: 0; aspect-ratio: 5 / 3; height: auto; object-fit: contain; background: #fff; }
 .thermoelectric-figure { width: min(100%, 480px); }
 .simulation-gallery figcaption { margin-top: 4px; color: var(--quiet); font-size: .7rem; }
 .card-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
@@ -110,7 +110,6 @@ button, input, textarea, select { font: inherit; }
   .utm-figure { width: 100%; }
   .project-subtopic, .simulation-gallery { grid-column: 1; }
   .simulation-gallery { grid-template-columns: 1fr; }
-  .simulation-gallery img { height: 190px; }
   .work-card h3, .work-card.featured h3, .work-card p, .video-embed, .research-figures, .card-links { grid-column: 1; }
   .card-topline { grid-column: 1; grid-row: auto; display: flex; justify-content: space-between; margin-bottom: 5px; }
   .card-topline span + span { margin-top: 0; }
