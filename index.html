@@ -914,6 +914,49 @@
       font-size: 0.83rem;
     }
 
+    .media-figure {
+      max-width: 760px;
+      margin: 34px 0 0;
+    }
+
+    .media-figure video {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      background: #080b10;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .media-figure figcaption,
+    .simulation-gallery figcaption {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .simulation-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .simulation-gallery figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .simulation-gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.25 / 1;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #080b10;
+    }
+
     .contribution-layout {
       display: grid;
       grid-template-columns: 0.88fr 1.12fr;
@@ -1372,6 +1415,10 @@
         grid-template-columns: 1fr;
       }
 
+      .simulation-gallery {
+        grid-template-columns: 1fr;
+      }
+
       .identity-panel,
       .project-main,
       .contribution-intro,
@@ -1680,6 +1727,10 @@
               </div>
 
               <p class="project-note i18n" data-en="Central claim to test: the CNT layer changes the topology and failure mechanism of the metal film, beyond providing a redundant conductive path." data-ko="핵심 검증 주장: CNT 층은 보조 전도경로를 제공하는 수준을 넘어 금속박막의 토폴로지와 파괴 메커니즘을 변화시킨다.">Central claim to test: the CNT layer changes the topology and failure mechanism of the metal film, beyond providing a redundant conductive path.</p>
+              <figure class="media-figure">
+                <video controls muted playsinline preload="metadata" src="assets/research/utm/utm-tensile-test.mp4"></video>
+                <figcaption class="i18n" data-en="UTM tensile test with simultaneous electrical-resistance monitoring" data-ko="전기저항을 동시에 모니터링한 UTM 인장시험">UTM tensile test with simultaneous electrical-resistance monitoring</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -1764,6 +1815,11 @@
               </dl>
 
               <div class="project-tags"><span class="tag">CFD</span><span class="tag">Python</span><span class="tag">Heat transfer</span><span class="tag">Species transport</span><span class="tag">Transient simulation</span><span class="tag">Process modeling</span></div>
+              <div class="simulation-gallery" aria-label="OpenFOAM CVD simulation outputs">
+                <figure><img src="assets/research/cvd/01-chamber-c2h2.gif" alt="C2H2 concentration field in the CVD chamber"><figcaption class="i18n" data-en="Chamber-scale C₂H₂ transport" data-ko="챔버 규모 C₂H₂ 수송">Chamber-scale C₂H₂ transport</figcaption></figure>
+                <figure><img src="assets/research/cvd/02-catalyst-cnt-response.gif" alt="Catalyst activity and CNT response over process time"><figcaption class="i18n" data-en="Catalyst state and CNT response" data-ko="촉매 상태와 CNT 응답">Catalyst state and CNT response</figcaption></figure>
+                <figure><img src="assets/research/cvd/03-gas-surface-consumption.gif" alt="Gas inventory and surface consumption during CVD"><figcaption class="i18n" data-en="Gas inventory and surface consumption" data-ko="가스 인벤토리와 표면 소모">Gas inventory and surface consumption</figcaption></figure>
+              </div>
             </div>
           </article>
         </div>
