@@ -116,4 +116,9 @@ button, input, textarea, select { font: inherit; }
   .ohgym-details span + span::before { display: none; }
   .ohgym-description { white-space: normal; }
 }
+@media (max-width: 980px) and (min-width: 621px) {
+  .simulation-gallery { column-gap: 12px; }
+  .simulation-gallery figure { padding: 5px; }
+  .simulation-gallery figcaption { overflow-wrap: anywhere; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
