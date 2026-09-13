@@ -18,7 +18,7 @@ button, input, textarea, select { font: inherit; }
 .hero-copy { position: relative; min-height: 162px; padding-right: 164px; }
 .hero h1 { margin: 0; font-size: 2rem; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; }
 .hero h1 span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; font-weight: 400; letter-spacing: 0; }
-.profile-photo { position: absolute; top: 0; right: 0; width: 128px; height: 162px; object-fit: cover; object-position: center 56%; }
+.profile-photo { position: absolute; top: 0; right: 0; width: 192px; height: 243px; object-fit: cover; object-position: center 56%; }
 .hero-lede { max-width: 650px; margin: 21px 0 0; color: var(--muted); font-size: 1rem; }
 .hero-actions { display: flex; margin-top: 13px; }
 .primary-link, .secondary-link, .text-link, .card-links a, .contact-panel a { color: var(--link); font-size: .9rem; font-weight: 600; }
@@ -53,6 +53,7 @@ button, input, textarea, select { font: inherit; }
 .ohgym-video-button span { position: absolute; right: 5px; bottom: 5px; padding: 2px 4px; background: rgba(255, 255, 255, .9); color: #111; font-size: .63rem; font-weight: 600; }
 .experience-link { display: inline-flex; margin-top: 9px; color: var(--link); font-size: .84rem; }
 .work-grid { display: grid; gap: 23px; }
+.work-card[data-tags~="thermoelectric"] { order: -1; }
 .work-card, .work-card.featured { display: grid; grid-template-columns: 118px minmax(0, 1fr); column-gap: 18px; padding: 0; background: transparent; }
 .card-topline { grid-column: 1; grid-row: 1 / span 8; color: var(--quiet); font-size: .78rem; line-height: 1.4; }
 .card-topline span { display: block; }
@@ -65,15 +66,16 @@ button, input, textarea, select { font: inherit; }
 .research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
 .research-figure { width: 100%; margin: 0; }
 .research-figure img, .research-figure video { display: block; width: 100%; height: auto; background: #fff; }
-.research-figure video { max-height: 360px; object-fit: contain; background: #000; }
-.utm-figure { width: 66.666%; }
+.research-figure video { max-height: 540px; object-fit: contain; background: #000; }
+.utm-figure { width: 100%; }
 .research-figure figcaption { margin-top: 4px; color: var(--quiet); font-size: .74rem; }
 .project-subtopic { display: grid; grid-column: 2; gap: 4px; width: min(100%, 680px); margin-top: 15px; padding: 10px 12px; border-left: 2px solid var(--link); background: rgba(11, 94, 146, .05); }
 .project-subtopic strong { font-size: .82rem; }
 .project-subtopic span { color: var(--muted); font-size: .84rem; }
-.simulation-gallery { display: grid; grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
-.simulation-gallery figure { min-width: 0; margin: 0; }
-.simulation-gallery img { display: block; width: 100%; aspect-ratio: 1.25 / 1; object-fit: cover; background: #000; }
+.simulation-gallery { display: grid; grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; min-width: 0; margin-top: 12px; overflow: hidden; }
+.simulation-gallery figure { min-width: 0; width: 100%; margin: 0; overflow: hidden; }
+.simulation-gallery img { display: block; width: 100%; max-width: 100%; aspect-ratio: 1.25 / 1; object-fit: cover; background: #000; }
+.thermoelectric-figure { width: min(100%, 480px); }
 .simulation-gallery figcaption { margin-top: 4px; color: var(--quiet); font-size: .7rem; }
 .card-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
 .card-links a { color: var(--link); font-size: .84rem; font-weight: 400; }
@@ -97,7 +99,7 @@ button, input, textarea, select { font: inherit; }
   .hero-content { padding: 24px 0 30px; }
   .hero-copy { min-height: 0; padding-right: 0; }
   .hero-identity { display: flex; flex-direction: column; }
-  .profile-photo { position: static; order: -1; width: 100px; height: 126px; margin-bottom: 18px; }
+  .profile-photo { position: static; order: -1; width: 150px; height: 189px; margin-bottom: 18px; }
   .hero h1 { font-size: 1.75rem; }
   .section-band { padding: 22px 0; }
   .award-body, .work-card, .work-card.featured { grid-template-columns: 1fr; gap: 0; }
