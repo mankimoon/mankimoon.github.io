@@ -65,6 +65,7 @@ button, input, textarea, select { font: inherit; }
 .video-embed iframe, .video-embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
 .dual-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 720px); gap: 16px; }
+.thermo-figures { grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(100%, 900px); }
 .research-figure { width: 100%; margin: 0; }
 .research-figure img, .research-figure video { display: block; width: 100%; height: auto; background: #fff; }
 .research-figure video { max-height: 540px; object-fit: contain; background: #000; }
@@ -113,6 +114,7 @@ button, input, textarea, select { font: inherit; }
   .project-subtopic, .simulation-gallery { grid-column: 1; }
   .simulation-gallery { grid-template-columns: 1fr; }
   .dual-figures { grid-template-columns: 1fr; }
+  .thermo-figures { grid-template-columns: 1fr; }
   .work-card h3, .work-card.featured h3, .work-card p, .video-embed, .research-figures, .card-links { grid-column: 1; }
   .card-topline { grid-column: 1; grid-row: auto; display: flex; justify-content: space-between; margin-bottom: 5px; }
   .card-topline span + span { margin-top: 0; }
