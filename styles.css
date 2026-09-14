@@ -66,6 +66,7 @@ button, input, textarea, select { font: inherit; }
 .research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
 .dual-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 720px); gap: 16px; }
 .thermo-figures { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: none; }
+.research-figures.thermoelectric-figure { width: 100%; max-width: none; }
 .research-figure { width: 100%; margin: 0; }
 .research-figure img, .research-figure video { display: block; width: 100%; height: auto; background: #fff; }
 .research-figure video { max-height: 540px; object-fit: contain; background: #000; }
