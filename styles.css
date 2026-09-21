@@ -19,8 +19,10 @@ button, input, textarea, select { font: inherit; }
 .hero h1 { margin: 0; font-size: 2rem; font-weight: 600; letter-spacing: -.025em; line-height: 1.05; }
 .hero h1 span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; font-weight: 400; letter-spacing: 0; }
 .profile-photo { position: absolute; top: 0; right: 0; width: 192px; height: 243px; object-fit: cover; object-position: center 56%; }
-.hero-lede { max-width: 650px; margin: 21px 0 0; color: var(--muted); font-size: 1rem; }
-.hero-actions { display: flex; margin-top: 13px; }
+.hero-role { margin: 19px 0 0; color: var(--ink); font-size: .84rem; font-weight: 600; text-transform: uppercase; }
+.hero-thesis { max-width: 650px; margin: 5px 0 0; color: var(--ink); font-size: 1.08rem; font-weight: 600; line-height: 1.45; }
+.hero-lede { max-width: 650px; margin: 12px 0 0; color: var(--muted); font-size: .96rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 13px; }
 .primary-link, .secondary-link, .text-link, .card-links a, .contact-panel a { color: var(--link); font-size: .9rem; font-weight: 600; }
 .section-band { padding: 26px 0; }
 .section-heading { margin-bottom: 16px; }
@@ -40,15 +42,21 @@ button, input, textarea, select { font: inherit; }
 .capability-group { min-width: 0; padding-top: 11px; border-top: 1px solid var(--line); }
 .capability-group h3 { margin: 0 0 5px; font-size: .95rem; font-weight: 600; }
 .capability-group p { margin: 0; color: var(--muted); font-size: .88rem; }
-.work-grid { display: grid; gap: 23px; }
-.work-card[data-tags~="thermoelectric"] { order: -1; }
+.research-intro, .direction-intro { max-width: 720px; margin: -3px 0 20px; color: var(--muted); font-size: .94rem; }
+.work-grid { display: grid; gap: 34px; }
 .work-card, .work-card.featured { display: grid; grid-template-columns: 118px minmax(0, 1fr); column-gap: 18px; padding: 0; background: transparent; }
 .card-topline { grid-column: 1; grid-row: 1 / span 8; color: var(--quiet); font-size: .78rem; line-height: 1.4; }
 .card-topline span { display: block; }
 .card-topline span + span { margin-top: 3px; }
 .work-card h3, .work-card.featured h3 { grid-column: 2; margin: 0 0 5px; font-size: 1rem; font-weight: 600; line-height: 1.4; }
-.work-card p, .video-embed, .research-figures, .card-links { grid-column: 2; }
+.work-card p, .video-embed, .research-figures, .card-links, .project-details { grid-column: 2; }
 .work-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+.project-summary { max-width: 720px; }
+.project-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 28px; margin-top: 14px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.project-detail { min-width: 0; }
+.project-detail h4 { margin: 0 0 3px; color: var(--quiet); font-size: .7rem; font-weight: 600; text-transform: uppercase; }
+.project-detail p { color: var(--muted); font-size: .82rem; line-height: 1.48; }
+.supporting-project { padding-top: 22px !important; border-top: 1px solid var(--line); }
 .video-embed { position: relative; width: min(100%, 410px); margin: 10px 0 0; overflow: hidden; aspect-ratio: 16 / 9; background: #000; }
 .video-embed iframe, .video-embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .research-figures { display: grid; width: min(100%, 480px); gap: 13px; margin-top: 10px; }
@@ -71,6 +79,10 @@ button, input, textarea, select { font: inherit; }
 .simulation-gallery figcaption { margin-top: 4px; color: var(--quiet); font-size: .7rem; }
 .card-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
 .card-links a { color: var(--link); font-size: .84rem; font-weight: 400; }
+.direction-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
+.direction-grid article { min-width: 0; padding-top: 11px; border-top: 1px solid var(--line); }
+.direction-grid h3 { margin: 0 0 5px; font-size: .95rem; font-weight: 600; }
+.direction-grid p { margin: 0; color: var(--muted); font-size: .88rem; }
 .contact { padding-top: 34px; }
 .contact-panel { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .contact-panel a { font-size: .9rem; }
@@ -100,7 +112,8 @@ button, input, textarea, select { font: inherit; }
   .output-meta span, .output-meta strong { display: inline; }
   .capability-grid { grid-template-columns: 1fr; row-gap: 17px; }
   .utm-figure { width: 100%; }
-  .project-subtopic, .simulation-gallery { grid-column: 1; }
+  .project-subtopic, .simulation-gallery, .project-details { grid-column: 1; }
+  .project-details, .direction-grid { grid-template-columns: 1fr; }
   .simulation-gallery { grid-template-columns: 1fr; }
   .dual-figures { grid-template-columns: 1fr; }
   .thermo-figures { grid-template-columns: 1fr; }
