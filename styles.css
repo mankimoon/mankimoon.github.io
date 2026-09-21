@@ -20,7 +20,6 @@ button, input, textarea, select { font: inherit; }
 .hero h1 span { display: block; margin-top: 6px; color: var(--muted); font-size: .95rem; font-weight: 400; letter-spacing: 0; }
 .profile-photo { position: absolute; top: 0; right: 0; width: 192px; height: 243px; object-fit: cover; object-position: center 56%; }
 .hero-role { margin: 19px 0 0; color: var(--ink); font-size: .84rem; font-weight: 600; text-transform: uppercase; }
-.hero-thesis { max-width: 650px; margin: 5px 0 0; color: var(--ink); font-size: 1.08rem; font-weight: 600; line-height: 1.45; }
 .hero-lede { max-width: 650px; margin: 12px 0 0; color: var(--muted); font-size: .96rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 13px; }
 .primary-link, .secondary-link, .text-link, .card-links a, .contact-panel a { color: var(--link); font-size: .9rem; font-weight: 600; }
@@ -42,7 +41,7 @@ button, input, textarea, select { font: inherit; }
 .capability-group { min-width: 0; padding-top: 11px; border-top: 1px solid var(--line); }
 .capability-group h3 { margin: 0 0 5px; font-size: .95rem; font-weight: 600; }
 .capability-group p { margin: 0; color: var(--muted); font-size: .88rem; }
-.research-intro, .direction-intro { max-width: 720px; margin: -3px 0 20px; color: var(--muted); font-size: .94rem; }
+.direction-intro { max-width: 720px; margin: -3px 0 20px; color: var(--muted); font-size: .94rem; }
 .work-grid { display: grid; gap: 34px; }
 .work-card, .work-card.featured { display: grid; grid-template-columns: 118px minmax(0, 1fr); column-gap: 18px; padding: 0; background: transparent; }
 .card-topline { grid-column: 1; grid-row: 1 / span 8; color: var(--quiet); font-size: .78rem; line-height: 1.4; }
